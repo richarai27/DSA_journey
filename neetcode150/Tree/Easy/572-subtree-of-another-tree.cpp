@@ -3,7 +3,7 @@
 // Difficulty: Easy
 // Topics: Tree, Depth-First Search, String Matching, Binary Tree, Hash Function
 // Runtime: 0 ms (Beats 100.0%)
-// Memory: 29.1 MB (Beats 13.2%)
+// Memory: 28.9 MB (Beats 93.4%)
 // Submitted: May 11, 2026
 // Link: https://leetcode.com/problems/subtree-of-another-tree/
 // ═══════════════════════════════════════════════════════
@@ -21,7 +21,7 @@
  */
 class Solution {
 public:
-    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+    bool isSubtree(TreeNode* root, TreeNode*  subRoot) {
         if(!subRoot) return true;
         if(!root) return false;
 

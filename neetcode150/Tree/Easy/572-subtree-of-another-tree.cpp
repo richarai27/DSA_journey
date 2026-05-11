@@ -21,13 +21,13 @@
  */
 class Solution {
 public:
-    bool isSubtree(TreeNode* root, TreeNode*   subRoot) {
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
         if(!subRoot) return true;
         if(!root) return false;
 
-        if(sameTree(root, subRoot)){
+        if(sameTree(root, subRoot)) {
             return true;
-        }else{
+        } else {
             return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot) ;
         }
     }

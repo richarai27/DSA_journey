@@ -2,8 +2,8 @@
 // Problem: 199. Binary Tree Right Side View
 // Difficulty: Medium
 // Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
-// Runtime: 0 ms (Beats 100.0%)
-// Memory: 15.1 MB (Beats 21.2%)
+// Runtime: 3 ms (Beats 7.4%)
+// Memory: 15 MB (Beats 40.3%)
 // Submitted: May 18, 2026
 // Link: https://leetcode.com/problems/binary-tree-right-side-view/
 // ═══════════════════════════════════════════════════════
@@ -38,7 +38,6 @@ public:
                     q.push(curr->left);
                     q.push(curr->right);
                 }
-
             }
             if(rightElement) result.push_back(rightElement->val);
         }

@@ -2,8 +2,8 @@
 // Problem: 1014. K Closest Points to Origin
 // Difficulty: Medium
 // Topics: Array, Math, Divide and Conquer, Geometry, Sorting, Heap (Priority Queue), Quickselect
-// Runtime: 98 ms (Beats 23.5%)
-// Memory: 83.9 MB (Beats 20.6%)
+// Runtime: N/A (Beats 0.0%)
+// Memory: N/A (Beats 0.0%)
 // Submitted: May 28, 2026
 // Link: https://leetcode.com/problems/k-closest-points-to-origin/
 // ═══════════════════════════════════════════════════════
@@ -14,7 +14,7 @@ public:
         priority_queue<pair<int, vector<int>>> maxHeap;
         vector<vector<int>> result;
 
-        for(auto pt : points){
+        for(auto& pt : points){
             maxHeap.push({pt[0]*pt[0]+pt[1]*pt[1], pt});
 
             if(maxHeap.size() > k) maxHeap.pop();

@@ -2,7 +2,7 @@
 // Problem: 355. Design Twitter
 // Difficulty: Medium
 // Topics: Hash Table, Linked List, Design, Heap (Priority Queue)
-// Runtime: 7 ms (Beats 63.3%)
+// Runtime: 3 ms (Beats 89.3%)
 // Memory: 57 MB (Beats 24.8%)
 // Submitted: Jun 1, 2026
 // Link: https://leetcode.com/problems/design-twitter/
@@ -28,20 +28,17 @@ public:
         
         priority_queue<vector<int>> maxHeap;
         
-        // 1. Initialize the heap with the single most recent tweet of each followee
         for (auto followee : followRecord[userId]) {
             if (!tweetRecord.count(followee) || tweetRecord[followee].empty()) {
                 continue;
             }
             
-            // Get the index of the absolute most recent tweet (last element in the vector)
             int idx = tweetRecord[followee].size() - 1;
             auto &p = tweetRecord[followee][idx];
             
             maxHeap.push({p.first, p.second, followee, idx - 1});
         }
-        
-        // 2. K-way merge: extract the top 10 most recent tweets
+       
         while (!maxHeap.empty() && res.size() < 10) {
             auto t = maxHeap.top();
             maxHeap.pop();
@@ -51,7 +48,6 @@ public:
             int nextIdx = t[3];
             int followeeId = t[2];
             
-            // If this user has older tweets left, push their next most recent one into the heap
             if (nextIdx >= 0) {
                 auto &p = tweetRecord[followeeId][nextIdx];
                 maxHeap.push({p.first, p.second, followeeId, nextIdx - 1});
@@ -66,7 +62,6 @@ public:
     }
     
     void unfollow(int followerId, int followeeId) {
-        // A user cannot unfollow themselves per typical platform constraints
         if (followerId != followeeId && followRecord[followerId].count(followeeId)) {
             followRecord[followerId].erase(followeeId);
         }
